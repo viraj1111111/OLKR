@@ -1,0 +1,45 @@
+from tkinter import *
+from tkinter.ttk import *
+
+from time import strftime 
+root=Tk()
+root.title ('DIGITAL CLOCK')
+def timec(str1):
+  if str1 [-2:] == "AM" and str1[:2]=="12":
+    return "000" + str1[2:-2]
+
+  elif str1[-2:] == "AM":
+    return str1 [:-2]
+  elif str1[-2:] == "PM" and str1[:2]=="12":
+    return str1[:-2]
+
+  else:
+    return str(int(str1[:2])+12) +str1[2:8]
+
+def clock():
+  tick = strftime ('%H:%M:%S %p')
+  x=timec(tick)
+  x=str(x)
+
+  hours = x[0:2]
+  min1 = x[3:5]
+  hours = int(hours)+5
+
+  min1=int(min1)+30
+  if (hours>24):
+    hours=int(hours)-24
+  if (int(min1)>=60):
+    min1=int(min1)-60
+    hours=int(hours)+1
+  print (min1)
+  y=str(hours)+":"+str(min1)+":"+x[6:8]
+    
+  
+  label.config(text = y)
+  label.after(1000,clock)
+  #'Times New Roman'
+label = Label(root, font =('Times New Roman', 80), background = 'grey', foreground = 'yellow')
+label.pack(anchor= 'center')
+
+clock()
+mainloop()
