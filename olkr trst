@@ -1,0 +1,30 @@
+class Mobile:
+  def __init__ (self,color,brand,price):
+    self.__color = color
+    self.__brand = brand
+    self.__price = price
+    
+  def get_color(self):
+    return self.__color
+  def get_brand(self):
+    return self.__brand
+  def get_price(self):
+    return self.__price
+  def set_price(self,new_price):
+    self.__price = new_price 
+  def set_color(self,new_color):
+    self.__color = new_color    
+  def set_brand(self,new_brand):
+    self.__brand=new_brand
+mobile1= Mobile('red','oppo',10000)
+mobile2= Mobile('rose gold','apple',10000000000)
+mobile3 = Mobile('green','alienware? ',10)
+print(mobile1.get_price())
+mobile1.set_price(10)
+print(mobile1.get_price())
+print(mobile1.get_color())
+mobile1.set_color("black")
+print(mobile1.get_color())
+print(mobile1.get_brand())
+mobile1.set_brand('olkr')
+print(mobile1.get_brand())
